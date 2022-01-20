@@ -8,7 +8,7 @@ import swal from 'sweetalert';
 function ProductList() {
     const [products, setProducts] = useState([]);
     const updateProduct = () => {
-        axios.get("http://localhost:5000/api/products").then((response) => {
+        axios.get("https://product-api-009.herokuapp.com/api/products").then((response) => {
             setProducts(response.data);
             console.log("Updateing Product list .......")
         });
@@ -26,7 +26,7 @@ function ProductList() {
             dangerMode: true,
         }).then((willDelete) => {
             if (willDelete) {
-                axios.delete("http://localhost:5000/api/products/" + product._id).then(
+                axios.delete("https://product-api-009.herokuapp.com/api/products/" + product._id).then(
                     (response) => {
                         console.log(response.data);
                         updateProduct();
